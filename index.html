@@ -3,138 +3,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sandro Siliuto | Art & Technology Studio</title>
+    <title>Extinción de Incendios Duque S.L. | Seguridad y Protección Profesional</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/font-awesome.min.css">
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .project-card:hover img { transform: scale(1.08); }
-        .modal { animation: modalPop 0.3s ease; }
-        @keyframes modalPop { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
-        .img-hover { transition: all 0.4s ease; }
-        .img-hover:hover { transform: scale(1.05); filter: brightness(1.1); }
+        :root {
+            --red-duque: #e31e24;
+            --dark-duque: #1a1a1a;
+            --whatsapp-green: #25D366;
+        }
+        .bg-duque { background-color: var(--red-duque); }
+        .text-duque { color: var(--red-duque); }
+        .hover-duque:hover { background-color: #c4191f; }
+        
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; scroll-behavior: smooth; }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1582268611958-ebaf16156271?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+        }
+
+        .service-card img {
+            transition: transform 0.5s ease;
+        }
+        .service-card:hover img {
+            transform: scale(1.1);
+        }
     </style>
 </head>
-<body class="bg-zinc-950 text-zinc-200">
+<body class="bg-slate-50 text-slate-900">
 
-    <!-- HEADER -->
-    <header class="bg-black py-12 text-center border-b border-cyan-500/20">
-        <img src="nuevologo.jpg" alt="Sandro Siliuto Logo" class="mx-auto mb-6 max-w-[280px]">
-        <h1 class="text-5xl font-bold tracking-tighter">Sandro Siliuto</h1>
-        <p class="text-xl text-cyan-400 mt-2">Art & Technology Studio • Tenerife · Londres · Bilbao</p>
-    </header>
+    <!-- Navegación -->
+    <nav class="glass-nav shadow-md sticky top-0 z-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-24">
+                <div class="flex items-center">
+                    <!-- LOGO PRINCIPAL -->
+                    <a href="#inicio" class="flex items-center">
+                        <img src="dukelogoweb.png" 
+                             alt="Extinción de Incendios Duque Logo" 
+                             class="h-16 md:h-20 w-auto object-contain py-2"
+                             onerror="this.parentElement.innerHTML='<span class=\'font-black text-2xl text-duque\'>DUQUE S.L.</span>'">
+                    </a>
+                </div>
+                
+                <!-- Menú Escritorio -->
+                <div class="hidden md:flex items-center space-x-8 font-bold uppercase text-xs tracking-widest">
+                    <a href="#inicio" class="text-slate-700 hover:text-duque transition">Inicio</a>
+                    <a href="#servicios" class="text-slate-700 hover:text-duque transition">Servicios</a>
+                    <a href="#galeria" class="text-slate-700 hover:text-duque transition">Proyectos</a>
+                    <a href="#contacto" class="text-slate-700 hover:text-duque transition">Contacto</a>
+                    <a href="https://wa.me/34661407988" class="bg-duque text-white px-6 py-3 rounded-md hover-duque transition shadow-lg">Contratar</a>
+                </div>
 
-    <!-- HERO -->
-    <section class="py-20 text-center px-6 bg-gradient-to-b from-black to-zinc-950">
-        <h2 class="text-4xl md:text-6xl font-black max-w-3xl mx-auto">Creando el futuro entre lo físico y lo digital</h2>
-        <p class="mt-6 text-xl text-zinc-400 max-w-2xl mx-auto">Impresión 3D · Video Mapping · Drones · Realidad Virtual · Cosplay</p>
-        <a href="https://wa.me/34618514254?text=Hola%20Sandro%2C%20vengo%20de%20tu%20web%20y%20me%20gustar%C3%ADa%20un%20presupuesto" 
-           class="inline-block mt-10 bg-cyan-400 hover:bg-white text-black font-bold px-10 py-4 rounded-full text-lg transition-all">
-            Pedir presupuesto por WhatsApp
-        </a>
-    </section>
-
-    <!-- PROYECTOS -->
-    <section class="max-w-7xl mx-auto px-6 py-20">
-        <h2 class="text-4xl font-bold text-center mb-12">Proyectos Destacados</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="project-card bg-zinc-900 rounded-3xl overflow-hidden">
-                <img src="Investigaci%C3%B3n%20%26%20Drones_NetworkDancers07%20(1).png" alt="Drones Network Dancers" class="w-full h-64 object-cover img-hover">
-                <div class="p-6">
-                    <h3 class="text-2xl font-semibold text-cyan-400">I+D & Drones</h3>
-                    <p class="text-zinc-400">Network Dancers • Technarte</p>
+                <!-- Menú Móvil -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-slate-900 p-2"><i class="fas fa-bars text-2xl"></i></button>
                 </div>
             </div>
-            <!-- Más tarjetas si quieres, pero ya tienes la galería completa abajo -->
         </div>
-    </section>
+    </nav>
 
-    <!-- GALERÍA CON LIGHTBOX -->
-    <section class="bg-black py-20">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12">Galería Completa – Drones & Investigación</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery">
-                <!-- Imágenes se generan con JS abajo -->
+    <!-- Hero -->
+    <section id="inicio" class="hero-section text-white py-32 md:py-48 px-4 text-center">
+        <div class="max-w-4xl mx-auto">
+            <span class="bg-duque px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6 inline-block">Seguridad Certificada</span>
+            <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight italic">TU SEGURIDAD ES <br><span class="text-duque">NUESTRA PRIORIDAD</span></h1>
+            <p class="text-xl md:text-2xl mb-10 text-slate-300 max-w-2xl mx-auto">Especialistas en instalación y mantenimiento de equipos contra incendios en toda la región.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://wa.me/34661407988" class="bg-duque text-white px-10 py-4 rounded-lg font-bold text-lg hover-duque transition flex items-center justify-center">
+                    <i class="fab fa-whatsapp mr-2 text-xl"></i> Contratar vía WhatsApp
+                </a>
+                <a href="https://www.facebook.com/people/Extinci%C3%B3n-de-Incendios-Duque-SL/100063860057577/" target="_blank" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 px-10 py-4 rounded-lg font-bold text-lg transition flex items-center justify-center">
+                    <i class="fab fa-facebook mr-2"></i> Facebook
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- VÍDEO -->
-    <section class="max-w-5xl mx-auto px-6 py-20 text-center">
-        <h2 class="text-4xl font-bold mb-8">Video Mapping & Motion Reel</h2>
-        <div class="aspect-video bg-black rounded-3xl overflow-hidden border border-cyan-500/30">
-            <iframe id="videoFrame" width="100%" height="100%" 
-                    src="https://www.youtube.com/embed/TU_ID_DE_YOUTUBE" 
-                    title="Video Mapping Sandro Siliuto" 
-                    frameborder="0" allowfullscreen></iframe>
+    <!-- Servicios con Imágenes Visuales -->
+    <section id="servicios" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4 border-l-4 border-duque pl-6">
+                <div>
+                    <h2 class="text-duque font-bold uppercase tracking-tighter text-sm mb-2">Especialidades</h2>
+                    <h3 class="text-4xl font-black text-slate-900 uppercase italic">Equipos Profesionales</h3>
+                </div>
+                <p class="text-slate-500 max-w-md italic">Equipamiento de última generación para la prevención y extinción inmediata.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Imagen 1: Extintores -->
+                <div class="service-card group bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="h-48 overflow-hidden bg-slate-200">
+                        <img src="https://images.unsplash.com/photo-1583907584102-39617e942cc0?q=80&w=800&auto=format&fit=crop" alt="Extintores de Incendio" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-fire-extinguisher text-3xl text-duque mr-3"></i>
+                            <h4 class="text-2xl font-bold text-slate-900">Extintores</h4>
+                        </div>
+                        <p class="text-slate-600">Suministro, revisión y retimbrado de extintores de polvo, CO2 y agua según normativa.</p>
+                    </div>
+                </div>
+
+                <!-- Imagen 2: Detección y Alarmas -->
+                <div class="service-card group bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="h-48 overflow-hidden bg-slate-200">
+                        <img src="https://images.unsplash.com/photo-1622765275822-4a004b77461f?q=80&w=800&auto=format&fit=crop" alt="Sensores de Humo" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-shield-alt text-3xl text-duque mr-3"></i>
+                            <h4 class="text-2xl font-bold text-slate-900">Detección</h4>
+                        </div>
+                        <p class="text-slate-600">Sistemas inteligentes de alarma, sensores de humo y centrales de detección temprana.</p>
+                    </div>
+                </div>
+
+                <!-- Imagen 3: Bocas de Incendio (BIE) -->
+                <div class="service-card group bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="h-48 overflow-hidden bg-slate-200">
+                        <img src="https://images.unsplash.com/photo-1544216717-3bbf52512659?q=80&w=800&auto=format&fit=crop" alt="Mangueras de Incendio BIE" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-water text-3xl text-duque mr-3"></i>
+                            <h4 class="text-2xl font-bold text-slate-900">BIE y Redes</h4>
+                        </div>
+                        <p class="text-slate-600">Mantenimiento de bocas de incendio equipadas, mangueras y grupos de presión de agua.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <p class="text-xs text-zinc-500 mt-6">Cambia "TU_ID_DE_YOUTUBE" por el ID de tu vídeo de YouTube</p>
     </section>
 
-    <!-- TESTIMONIOS Y CONTACTO -->
-    <section class="max-w-4xl mx-auto px-6 py-20 text-center">
-        <h2 class="text-4xl font-bold mb-12">Lo que dicen de mí</h2>
-        <div class="space-y-12 text-left max-w-2xl mx-auto">
-            <blockquote class="border-l-4 border-cyan-400 pl-6 italic">"El nivel de detalle y la capacidad de Sandro para entender las necesidades técnicas y estéticas es excepcional."</blockquote>
-            <p class="text-right font-semibold">— Jose Manuel Cabello</p>
+    <!-- Galería Visual -->
+    <section id="galeria" class="py-24 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-black mb-4 uppercase italic tracking-tighter">Nuestros Equipos en Detalle</h2>
+                <div class="w-24 h-1 bg-duque mx-auto"></div>
+            </div>
             
-            <blockquote class="border-l-4 border-cyan-400 pl-6 italic">"La visión creativa combinada con el dominio de tecnologías como el video mapping hace que trabajar con Sandro sea garantía de innovación."</blockquote>
-            <p class="text-right font-semibold">— John Astorquiza</p>
-        </div>
-
-        <div class="mt-20">
-            <h3 class="text-3xl font-bold mb-6">¿Hablamos?</h3>
-            <p class="text-2xl"><a href="mailto:ssiliutodesign@gmail.com" class="text-cyan-400 hover:underline">ssiliutodesign@gmail.com</a></p>
-            <p class="text-2xl mt-4"><a href="https://wa.me/34618514254?text=Hola%20Sandro%2C%20vengo%20de%20tu%20web" class="text-cyan-400 hover:underline">+34 618 51 42 54 (WhatsApp)</a></p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="h-80 bg-slate-800 rounded-xl overflow-hidden relative shadow-2xl border border-slate-700 group">
+                    <img src="https://images.unsplash.com/photo-1615461066870-40b124f293db?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500" alt="Extintores certificados">
+                    <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                        <p class="font-bold text-sm uppercase">Extintores Certificados</p>
+                    </div>
+                </div>
+                <div class="h-80 bg-slate-800 rounded-xl overflow-hidden relative shadow-2xl border border-slate-700 group">
+                    <img src="https://images.unsplash.com/photo-1599708153386-62e082313670?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500" alt="Alarmas industriales">
+                    <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                        <p class="font-bold text-sm uppercase">Sistemas de Alarma</p>
+                    </div>
+                </div>
+                <div class="h-80 bg-slate-800 rounded-xl overflow-hidden relative shadow-2xl border border-slate-700 group">
+                    <img src="https://images.unsplash.com/photo-1516733725897-1aa73b87c8e8?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500" alt="Hidrantes y agua">
+                    <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                        <p class="font-bold text-sm uppercase">Redes de Hidrantes</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="bg-black py-10 text-center text-xs text-zinc-600">
-        © 2026 Sandro Siliuto | Art & Technology Studio
+    <!-- Contacto -->
+    <section id="contacto" class="py-24 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row border border-slate-200">
+                <div class="bg-slate-900 text-white p-10 md:w-1/2 flex flex-col justify-center">
+                    <h2 class="text-3xl font-black mb-6 italic uppercase tracking-tighter text-duque">Contáctanos</h2>
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-duque mr-4 text-xl"></i>
+                            <p class="text-slate-300">Jaén, España</p>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone-alt text-duque mr-4 text-xl"></i>
+                            <p class="text-slate-300">+34 600 000 000</p>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-duque mr-4 text-xl"></i>
+                            <p class="text-slate-300">info@extincionduque.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-10 md:w-1/2 text-center bg-white flex flex-col justify-center items-center">
+                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fab fa-whatsapp text-4xl text-green-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-slate-900 mb-6 uppercase italic">Presupuesto Gratis</h3>
+                    <a href="https://wa.me/34661407988" target="_blank" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-xl transition shadow-lg flex items-center justify-center gap-3">
+                        WhatsApp Directo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8">
+            <img src="dukelogoweb.png" alt="Logo Duque Footer" class="h-12 w-auto object-contain brightness-0 invert opacity-70">
+            <p class="text-slate-500 text-sm">© 2024 Extinción de Incendios Duque S.L.</p>
+            <div class="flex space-x-6 text-xl text-slate-500">
+                <a href="#" class="hover:text-duque transition"><i class="fab fa-facebook"></i></a>
+                <a href="https://wa.me/34661407988" target="_blank" class="hover:text-whatsapp-green transition"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
     </footer>
 
-    <!-- LIGHTBOX MODAL -->
-    <div id="lightbox" class="hidden fixed inset-0 bg-black/95 flex items-center justify-center z-50 p-4">
-        <button onclick="closeLightbox()" class="absolute top-8 right-8 text-white text-4xl font-light hover:text-cyan-400">✕</button>
-        <img id="lightboxImage" class="max-h-[90vh] max-w-[90vw] rounded-2xl shadow-2xl" alt="">
-    </div>
-
-    <script>
-        // Tailwind script
-        tailwind.config = { content: ["*"], theme: { extend: {} } };
-
-        // Imágenes exactas de tu repo
-        const images = [
-            "Investigación & Drones_NetworkDancers07 (1).png",
-            "Investigación & Drones_NetworkDancers07 (2).jpg",
-            "Investigación & Drones_NetworkDancers07 (2).png",
-            "Investigación & Drones_NetworkDancers07 (3).png",
-            "Investigación & Drones_NetworkDancers07 (4).png",
-            "Investigación & Drones_technarte (1).jpeg",
-            "InvestigaciónDrones_NetworkDancers07 (1).jpg",
-            "nuevologo.jpg"
-        ];
-
-        const gallery = document.getElementById('gallery');
-        images.forEach(src => {
-            const div = document.createElement('div');
-            div.className = "cursor-pointer overflow-hidden rounded-3xl";
-            div.innerHTML = `<img src="${src}" class="w-full h-full object-cover img-hover" onclick="openLightbox('${src}')">`;
-            gallery.appendChild(div);
-        });
-
-        function openLightbox(src) {
-            document.getElementById('lightboxImage').src = src;
-            document.getElementById('lightbox').classList.remove('hidden');
-            document.getElementById('lightbox').classList.add('flex');
-        }
-        function closeLightbox() {
-            document.getElementById('lightbox').classList.add('hidden');
-            document.getElementById('lightbox').classList.remove('flex');
-        }
-
-        // Cierra lightbox con ESC
-        document.addEventListener('keydown', e => { if (e.key === "Escape") closeLightbox(); });
-    </script>
 </body>
 </html>
